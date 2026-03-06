@@ -1,43 +1,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Returns the sum of a and b */
+//returns the sum of a and b
 double add(double a, double b)
 {
     return a + b;
 }
 
-/* Returns the difference of a and b */
+/* returns the difference of a and b */
 double subtract(double a, double b)
 {
     return a - b;
 }
 
-/* Returns the product of a and b */
+/* teturns the product of a and b */
 double multiply(double a, double b)
 {
     return a * b;
 }
 
-/* Returns the quotient of a divided by b */
+//returns the quotient of a divided by b
 double divide(double a, double b)
 {
     return a / b;
 }
 
-/* Prints the menu options */
+/* printing the menu options */
 void printMenu(void)
 {
-    printf("\n╔══════════════════════════╗\n");
-      printf("║    SIMPLE CALCULATOR     ║\n");
-      printf("╠══════════════════════════╣\n");
-      printf("║  1. Addition      ( + )  ║\n");
-      printf("║  2. Subtraction   ( - )  ║\n");
-      printf("║  3. Multiplication( * )  ║\n");
-      printf("║  4. Division      ( / )  ║\n");
-      printf("║  5. Exit                 ║\n");
-      printf("╚══════════════════════════╝\n");
+  printf("\n╔══════════════════════════╗\n");
+    printf("║    SIMPLE CALCULATOR     ║\n");
+    printf("╠══════════════════════════╣\n");
+    printf("║  1. Addition      ( + )  ║\n");
+    printf("║  2. Subtraction   ( - )  ║\n");
+    printf("║  3. Multiplication( * )  ║\n");
+    printf("║  4. Division      ( / )  ║\n");
+    printf("║  5. Exit                 ║\n");
+    printf("╚══════════════════════════╝\n");
     printf("  Choose an option [1-5]: ");
+}
+
+/* reads two numbers, returns 1 on success, 0 on bad input */
+int getOperands(double *a, double *b)
+{
+    int validA, validB;
+
+    printf("  Enter first  number: ");
+    validA = scanf("%lf", a);
+
+    printf("  Enter second number: ");
+    validB = scanf("%lf", b);
+
+    while (getchar() != '\n');  //clear input buffer
+
+    if (validA != 1 || validB != 1) {
+        printf("  [!] Invalid input. Please enter numeric values.\n");
+        return 0;
+    }
+    return 1;
 }
 
 int main(void)
@@ -49,17 +69,30 @@ int main(void)
 
     do {
         printMenu();
-        scanf("%d", &choice);
+
+        /* Validate menu choice is an integer */
+        if (scanf("%d", &choice) != 1) {
+            printf("  [!] Please enter a number between 1 and 5.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        while (getchar() != '\n');
 
         if (choice == 5) {
-            printf("\n  Goodbye!\n\n");
+            printf("\n  Goodbye! Thanks for using the calculator.\n\n");
             break;
         }
 
-        printf("  Enter first  number: ");
-        scanf("%lf", &num1);
-        printf("  Enter second number: ");
-        scanf("%lf", &num2);
+        // Validate choice is in range
+        if (choice < 1 || choice > 5) {
+            printf("  [!] Invalid option. Please choose between 1 and 5.\n");
+            continue;
+        }
+
+        //get and validate operands
+        if (!getOperands(&num1, &num2)) {
+            continue;
+        }
 
         switch (choice) {
             case 1:
@@ -75,11 +108,16 @@ int main(void)
                 printf("\n  Result: %.2f * %.2f = %.2f\n", num1, num2, result);
                 break;
             case 4:
-                result = divide(num1, num2);
-                printf("\n  Result: %.2f / %.2f = %.2f\n", num1, num2, result);
+                /* division-by-zero check before calling divide() */
+                if (num2 == 0) {
+                    printf("\n  [!] Error: Cannot divide by zero.\n");
+                } else {
+                    result = divide(num1, num2);
+                    printf("\n  Result: %.2f / %.2f = %.2f\n", num1, num2, result);
+                }
                 break;
             default:
-                printf("  [!] Invalid option. Try again.\n");
+                printf("  [!] Unexpected error. Try again.\n");
                 break;
         }
 
