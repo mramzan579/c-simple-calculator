@@ -105,12 +105,12 @@ simple-calculator-c/
 
 ## 🧠 What I Learned
 
-- How to write and call functions in C properly
-- How `scanf` works and why you must check its return value
-- Why flushing the input buffer (`while (getchar() != '\n')`) matters
-- How `switch-case` with `do-while` creates a clean program loop
-- The difference between writing code that works and writing code that is safe
-- How to structure a project into commits that tell a story
+How to write and call functions in C properly
+How `scanf` works and why you must check its return value
+Why flushing the input buffer (`while (getchar() != '\n')`) matters
+How `switch-case` with `do-while` creates a clean program loop
+The difference between writing code that works and writing code that is safe
+How to structure a project into commits that tell a story
 
 
 ## 📬 Connect With Me
@@ -118,9 +118,9 @@ simple-calculator-c/
 If you are a client, recruiter, or fellow developer — feel free to reach out.
 
 **Muhammad Ramzan**
-- GitHub: https://github.com/mramzan579
-- LinkedIn: https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/
-- Email: mramzan147800@gmail.com
+GitHub: https://github.com/mramzan579
+LinkedIn: https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/
+Email: mramzan147800@gmail.com
 
 <div align="center">
   <sub>Built with patience, debugging, and a lot of C compiler errors — by Muhammad Ramzan</sub>
