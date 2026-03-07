@@ -92,11 +92,10 @@ gcc -Wall -Wextra -o calculator calculator.c
 
 > On Windows with MinGW: `gcc -Wall -Wextra -o calculator.exe calculator.c` then `calculator.exe`
 
----
+
 
 ## 📁 Project Structure
 
-```
 simple-calculator-c/
 │
 ├── calculator.c     # Main source file — entire project lives here
