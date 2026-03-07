@@ -101,7 +101,7 @@ simple-calculator-c/
 ├── calculator.c     # Main source file — entire project lives here
 └── README.md        # You are reading this
 
-
+---
 ## 🧠 What I Learned
 
 How to write and call functions in C properly
@@ -124,3 +124,4 @@ Email: mramzan147800@gmail.com
 <div align="center">
   <sub>Built with patience, debugging, and a lot of C compiler errors — by Muhammad Ramzan</sub>
 </div>
+---
